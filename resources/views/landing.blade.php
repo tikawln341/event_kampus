@@ -332,6 +332,54 @@
             border-radius: 16px;
             padding: 40px;
         }
+
+        .gallery-section {
+            margin-bottom: 48px;
+        }
+
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            background: white;
+            min-height: 100%;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.45s ease;
+        }
+
+        .gallery-card:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.7) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .gallery-content {
+            color: white;
+        }
+
+        .gallery-card .badge {
+            font-size: 0.75rem;
+            letter-spacing: 0.04em;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-image {
+                height: 220px;
+            }
+        }
     </style>
 </head>
 
@@ -439,6 +487,52 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
+
+        <!-- Event Gallery Section -->
+        <section class="gallery-section">
+            <div class="text-center mb-4">
+                <h2 class="section-title fw-bold">{{ __('messages.event_gallery_title') }}</h2>
+                <p class="text-muted mb-0">{{ __('messages.event_gallery_description') }}</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="gallery-card">
+                        <img src="{{ asset('assets/img/elements/1.png') }}" class="gallery-image" alt="{{ __('messages.event_gallery_alt_1') }}">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <span class="badge bg-light text-dark mb-2">{{ __('messages.event_gallery_tag_workshop') }}</span>
+                                <h5 class="fw-bold mb-1">{{ __('messages.event_gallery_title_workshop') }}</h5>
+                                <p class="small mb-0">{{ __('messages.event_gallery_desc_workshop') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-card">
+                        <img src="{{ asset('assets/img/elements/2.png') }}" class="gallery-image" alt="{{ __('messages.event_gallery_alt_2') }}">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <span class="badge bg-light text-dark mb-2">{{ __('messages.event_gallery_tag_competition') }}</span>
+                                <h5 class="fw-bold mb-1">{{ __('messages.event_gallery_title_competition') }}</h5>
+                                <p class="small mb-0">{{ __('messages.event_gallery_desc_competition') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-card">
+                        <img src="{{ asset('assets/img/elements/3.png') }}" class="gallery-image" alt="{{ __('messages.event_gallery_alt_3') }}">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <span class="badge bg-light text-dark mb-2">{{ __('messages.event_gallery_tag_networking') }}</span>
+                                <h5 class="fw-bold mb-1">{{ __('messages.event_gallery_title_networking') }}</h5>
+                                <p class="small mb-0">{{ __('messages.event_gallery_desc_networking') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Ongoing Events Section -->
         <h2 class="text-center section-title fw-bold">{{ __('messages.ongoing_events_title') }}</h2>
